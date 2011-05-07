@@ -1,0 +1,56 @@
+================== Signal Tracker ===============
+== Released 7 May 2011 by Henry Corrigan-Gibbs ==
+=================================================
+This project is based on Open GPS Tracker:
+http://code.google.com/p/open-gpstracker/
+and is released under the GNU GPLv3
+
+== Requirements ==
+- Android phone
+- Python
+- Imagemagick (if you want to generate icons)
+- KML file viewing tool (like Google Earth)
+
+== How to use it ==
+1) Copy the APK file OpenGPSTracker.apk
+to your phone and install the app. You
+might have to go into your "Application"
+settings and enable "Developer Mode" and
+the setting that allows you to install
+unsigned applications.
+
+2) Use the tracker software to record a
+location path. This should work even if
+the phone display is off but I have had the app
+crash when I try to turn the screen off.
+
+If you run in "fine" tracking mode, you will get
+lots and lots of data points -- probably more
+than you need.
+
+3) Export the track as a GPX file (KML
+doesn't work) and transfer it to your
+computer.
+
+4) If you don't already have 32 PNG files named
+icon_[0-31].png then run the icon generation
+script (requires imagemagick's "convert" tool):
+
+	$ . generate_swatches.bash
+
+This script generates 32 images -- one for every
+GSM signal strength -- so that the signal strengths
+can be displayed in color on the map. There may be
+a better way to do this with KML, but this method
+works quite well. You can tweak the parameters to
+change the size and shape of the icons.
+
+5) Use the python converter script to convert
+the GPX file into a KML file for displaying
+the route:
+
+	$ python gpx2kml.py < Track-2011-03-24.gpx > out.kml
+
+6) Fire up Google Earth and open your KML file.
+
+
