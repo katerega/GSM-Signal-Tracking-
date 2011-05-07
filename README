@@ -6,9 +6,10 @@ http://code.google.com/p/open-gpstracker/
 and is released under the GNU GPLv3
 
 == Requirements ==
-- Android phone
-- Python
-- Imagemagick (if you want to generate icons)
+- Android phone (tested with 2.1)
+- Python (tested with 2.6)
+- Imagemagick if you want to generate icons
+	(tested with 6.5.8)
 - KML file viewing tool (like Google Earth)
 
 == How to use it ==
