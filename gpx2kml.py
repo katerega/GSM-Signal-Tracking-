@@ -51,6 +51,7 @@ class GpxParser(object):
 	STATE_EXT_COURSE	= 8
 	STATE_EXT_SIG		= 9
 
+	i=0
 	'''
 	STATE_DATA defines the state transitions.
 
@@ -99,7 +100,7 @@ class GpxParser(object):
 					<href>icon_%(sig)d.png</href>
 				</Icon>
 			</IconStyle>
-		</Style>"""
+		</Style>\n"""
 		for i in xrange(0,32):
 			self.outfile.write(stylestr % {'sig': i})
 
@@ -107,6 +108,8 @@ class GpxParser(object):
 		self.outfile.write('\t</Document>\n'\
 							'</kml>\n')
 	def _write_point(self):
+		self.i+=1
+		if self.i % 10 != 0: return
 		point_data = self.cur_point
 
 		s=\
@@ -118,6 +121,7 @@ class GpxParser(object):
 \t\t\t</Point>
 \t\t\t<styleUrl>#icon_%(sig)d</styleUrl>
 \t\t\t<description>
+\t\t\t<![CDATA[
 """
 		if 'time' in point_data:
 			s += "\t\t\t\t<strong>Time</strong>: %(time)s<br/>\n"
@@ -132,6 +136,7 @@ class GpxParser(object):
 		if 'ele' in point_data:
 			s += "\t\t\t\t<strong>Elevation</strong>: %(ele)0.1f meters<br/>\n"
 
+		s += "\t\t\t]]>\n"
 		s += "\t\t\t</description>\n"
 		s += "\t\t</Placemark>\n"
 
@@ -182,7 +187,6 @@ class GpxParser(object):
 
 if __name__ == '__main__':
 	g = GpxParser(sys.stdout)
-	with open('Ruhiira/Short_Version.gpx', 'r') as f:
-		g.parse_file(sys.stdin)
+	g.parse_file(sys.stdin)
 
 
