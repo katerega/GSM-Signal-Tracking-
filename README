@@ -13,6 +13,10 @@ and is released under the GNU GPLv3
 - KML file viewing tool (like Google Earth)
 
 == How to use it ==
+0) If you want to compile the APK file
+yourself, do that. Otherwise, download
+the pre-made .apk from www.henrycg.com/signal.
+
 1) Copy the APK file OpenGPSTracker.apk
 to your phone and install the app. You
 might have to go into your "Application"
