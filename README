@@ -15,7 +15,8 @@ and is released under the GNU GPLv3
 == How to use it ==
 0) If you want to compile the APK file
 yourself, do that. Otherwise, download
-the pre-made .apk from www.henrycg.com/signal.
+the pre-made .apk from 
+  https://github.com/henrycg/GSM-Signal-Tracking-/releases
 
 1) Copy the APK file OpenGPSTracker.apk
 to your phone and install the app. You
